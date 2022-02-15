@@ -14,6 +14,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "EXCHANGE_API_KEY", EXCHANGE_API_KEY)
     }
 
     buildTypes {
@@ -28,6 +29,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding = true
     }
 }
 
