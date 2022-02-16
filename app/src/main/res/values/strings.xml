@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Wirebarley</string>
-    <string name="환율계산">환율 계산:</string>
+    <string name="환율계산">환율 계산</string>
     <string name="송금국가">송금 국가: 미국(USD)</string>
     <string name="환율">환율:</string>
     <string name="미국_USD">미국(USD)</string>
@@ -8,4 +8,5 @@
     <string name="USD">USD</string>
     <string name="수취금액_계산">수취금액 계산</string>
     <string name="수취국가_변경">수취국가 변경</string>
+    <string name="조회시간">조회시간:</string>
 </resources>
