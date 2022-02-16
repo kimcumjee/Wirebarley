@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Wirebarley</string>
-    <string name="tv_환율계산">환율 계산:</string>
-    <string name="tv_송금국가">송금 국가: 미국(USD)</string>
-    <string name="tv_수취국가">수취 국가: 한국(KRW)</string>
-    <string name="tv_환율">환율:</string>
-    <string name="tv_usd">미국(USD)</string>
+    <string name="환율계산">환율 계산:</string>
+    <string name="송금국가">송금 국가: 미국(USD)</string>
+    <string name="환율">환율:</string>
+    <string name="미국_USD">미국(USD)</string>
+    <string name="송금액">송금액:</string>
+    <string name="USD">USD</string>
+    <string name="수취금액_계산">수취금액 계산</string>
+    <string name="수취국가_변경">수취국가 변경</string>
 </resources>
