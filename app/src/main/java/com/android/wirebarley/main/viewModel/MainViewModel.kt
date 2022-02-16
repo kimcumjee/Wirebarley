@@ -8,6 +8,7 @@ import com.android.wirebarley.network.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainViewModel : ViewModel() {
     private val io = Dispatchers.IO
@@ -18,9 +19,9 @@ class MainViewModel : ViewModel() {
             val getExchangeApi = RetrofitClient.instance.getExchangeList
             val response = getExchangeApi.getBroadcastList(BuildConfig.EXCHANGE_API_KEY)
             if (response.isSuccessful) {
-                exchangeReceived.value = response.body()
-            } else {
-
+                withContext(main) {
+                    exchangeReceived.value = response.body()
+                }
             }
         }
     }

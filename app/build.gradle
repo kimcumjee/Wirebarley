@@ -15,6 +15,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "EXCHANGE_API_KEY", EXCHANGE_API_KEY)
+        buildConfigField("String", "EXCHANGE_API_BASE_URL", EXCHANGE_API_BASE_URL)
     }
 
     buildTypes {
