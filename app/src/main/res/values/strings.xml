@@ -9,4 +9,10 @@
     <string name="수취금액_계산">수취금액 계산</string>
     <string name="수취국가_변경">수취국가 변경</string>
     <string name="조회시간">조회시간:</string>
+    <string name="set_KRW">원화로 변경</string>
+    <string name="set_JPY">엔화로 변경</string>
+    <string name="set_PHP">페소로 변경</string>
+    <string name="한국_KRW">한국(KRW)</string>
+    <string name="일본_JPY">일본(JPY)</string>
+    <string name="필리핀_PHP">필리핀(PHY)</string>
 </resources>
