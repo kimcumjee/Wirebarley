@@ -3,7 +3,6 @@ package com.android.wirebarley.main.viewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.wirebarley.BuildConfig
-import com.android.wirebarley.main.model.response.ExchangeResponse
 import com.android.wirebarley.network.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +21,7 @@ class MainViewModel : ViewModel() {
             val response = getExchangeApi.getBroadcastList(BuildConfig.EXCHANGE_API_KEY)
             if (response.isSuccessful) {
                 withContext(main) {
-                    KRWReceived.value = response.body()?.quotes?.USDKRW
+                    KRWReceived.value = response.body()!!.quotes.USDKRW
                 }
             }
         }
@@ -33,7 +32,7 @@ class MainViewModel : ViewModel() {
             val response = getExchangeApi.getBroadcastList(BuildConfig.EXCHANGE_API_KEY)
             if (response.isSuccessful) {
                 withContext(main) {
-                    JPYReceived.value = response.body()?.quotes?.USDJPY
+                    JPYReceived.value = response.body()!!.quotes.USDJPY
                 }
             }
         }
@@ -44,7 +43,7 @@ class MainViewModel : ViewModel() {
             val response = getExchangeApi.getBroadcastList(BuildConfig.EXCHANGE_API_KEY)
             if (response.isSuccessful) {
                 withContext(main) {
-                    PHPReceived.value = response.body()?.quotes?.USDPHP
+                    PHPReceived.value = response.body()!!.quotes.USDPHP
                 }
             }
         }

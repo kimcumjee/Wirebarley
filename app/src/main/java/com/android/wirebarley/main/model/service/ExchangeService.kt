@@ -6,8 +6,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ExchangeService {
-    @GET("campaigns/{accessKey}")
+    @GET("live")
     suspend fun getBroadcastList(
-        @Query("accessKey") accessKey: String
+        @Query("access_key") accessKey: String
     ): Response<ExchangeResponse>
 }

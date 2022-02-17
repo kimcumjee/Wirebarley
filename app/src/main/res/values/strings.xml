@@ -4,15 +4,18 @@
     <string name="송금국가">송금 국가: 미국(USD)</string>
     <string name="환율">환율:</string>
     <string name="미국_USD">미국(USD)</string>
+    <string name="한국_KRW">한국(KRW)</string>
+    <string name="일본_JPY">일본(JPY)</string>
+    <string name="필리핀_PHP">필리핀(PHY)</string>
     <string name="송금액">송금액:</string>
     <string name="USD">USD</string>
     <string name="수취금액_계산">수취금액 계산</string>
     <string name="수취국가_변경">수취국가 변경</string>
-    <string name="조회시간">조회시간:</string>
+    <string name="조회시간">조회시간: </string>
     <string name="set_KRW">원화로 변경</string>
     <string name="set_JPY">엔화로 변경</string>
     <string name="set_PHP">페소로 변경</string>
-    <string name="한국_KRW">한국(KRW)</string>
-    <string name="일본_JPY">일본(JPY)</string>
-    <string name="필리핀_PHP">필리핀(PHY)</string>
+    <string name="수취국가_한국">수취국가: 한국(KRW)</string>
+    <string name="수취국가_일본">수취국가: 일본(JPY)</string>
+    <string name="수취국가_필리핀">수취국가: 필리핀(PHP)</string>
 </resources>
