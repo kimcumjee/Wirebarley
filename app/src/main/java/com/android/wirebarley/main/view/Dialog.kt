@@ -12,15 +12,16 @@ class Dialog(private val activity: Activity, private val viewModel: MainViewMode
             activity,
             R.layout.dialog_set_country
         )
+        val dialog = binding.getAlertDialog()
         binding.binding.apply {
-            btnSetJPY.setOnClickListener {
-
-            }
             btnSetKRW.setOnClickListener {
-
+                viewModel.changeCountry.value = 0
+            }
+            btnSetJPY.setOnClickListener {
+                viewModel.changeCountry.value = 1
             }
             btnSetPHP.setOnClickListener {
-
+                viewModel.changeCountry.value = 2
             }
         }
         return binding.getAlertDialog()
