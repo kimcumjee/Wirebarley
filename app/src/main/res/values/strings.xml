@@ -18,4 +18,5 @@
     <string name="수취국가_한국">수취국가: 한국(KRW)</string>
     <string name="수취국가_일본">수취국가: 일본(JPY)</string>
     <string name="수취국가_필리핀">수취국가: 필리핀(PHP)</string>
+    <string name="api_error_msg">일시적인 오류입니다 다시 시도해주세요</string>
 </resources>

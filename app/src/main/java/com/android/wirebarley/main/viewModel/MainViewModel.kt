@@ -5,6 +5,8 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.wirebarley.BuildConfig
+import com.android.wirebarley.R
+import com.android.wirebarley.`object`.CountryCode
 import com.android.wirebarley.main.model.Country
 import com.android.wirebarley.network.RetrofitClient
 import kotlinx.coroutines.CoroutineScope
@@ -24,14 +26,14 @@ class MainViewModel : ViewModel() {
             if (response.isSuccessful) {
                 withContext(main) {
                     if (response.body()?.quotes?.USDKRW == null) {
-                        Toast.makeText(context, "일시적인 오류입니다 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, context.getText(R.string.api_error_msg), Toast.LENGTH_SHORT).show()
                     } else {
                         when (countryCode) {
-                            0 -> received.value =
+                            CountryCode.korea -> received.value =
                                 Country(response.body()!!.quotes.USDKRW, countryCode)
-                            1 -> received.value =
+                            CountryCode.japan -> received.value =
                                 Country(response.body()!!.quotes.USDJPY, countryCode)
-                            2 -> received.value =
+                            CountryCode.philippines -> received.value =
                                 Country(response.body()!!.quotes.USDPHP, countryCode)
                         }
                     }

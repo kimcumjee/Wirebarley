@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.android.wirebarley.R
+import com.android.wirebarley.`object`.CountryCode
 import com.android.wirebarley.databinding.ActivityMainBinding
 import com.android.wirebarley.main.viewModel.MainViewModel
 import java.math.BigDecimal
@@ -16,15 +17,13 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val viewModel = MainViewModel()
     private val dec = DecimalFormat("#,###.00")
-    private val koreaCode = 0
-    private val japanCode = 1
-    private val philippines = 2
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val dialog = Dialog(this, viewModel)
         val changeReceiveCountryDialog: AlertDialog = dialog.changeReceiveCountryDialog()
-        viewModel.getExchangeRate(this, koreaCode)
+        viewModel.getExchangeRate(this, CountryCode.korea)
         binding.apply {
             etSendMoney.addTextChangedListener {
                 if (it.isNullOrBlank()) {
@@ -35,19 +34,18 @@ class MainActivity : AppCompatActivity() {
                 changeReceiveCountryDialog.show()
             }
             btnCalculateReceiveMoney.setOnClickListener {
-
                 when (tvReceiveCountry.text) {
                     this@MainActivity.getString(R.string.수취국가_한국) -> viewModel.getExchangeRate(
                         this@MainActivity,
-                        koreaCode
+                        CountryCode.korea
                     )
                     this@MainActivity.getString(R.string.수취국가_일본) -> viewModel.getExchangeRate(
                         this@MainActivity,
-                        japanCode
+                        CountryCode.japan
                     )
                     this@MainActivity.getString(R.string.수취국가_필리핀) -> viewModel.getExchangeRate(
                         this@MainActivity,
-                        philippines
+                        CountryCode.philippines
                     )
                 }
             }
@@ -65,16 +63,16 @@ class MainActivity : AppCompatActivity() {
         }
         viewModel.changeCountry.observe(this) {
             when (it) {
-                koreaCode -> {
-                    viewModel.getExchangeRate(this, koreaCode)
+                CountryCode.korea -> {
+                    viewModel.getExchangeRate(this, CountryCode.korea)
                     changeReceiveCountryDialog.dismiss()
                 }
-                japanCode -> {
-                    viewModel.getExchangeRate(this, japanCode)
+                CountryCode.japan -> {
+                    viewModel.getExchangeRate(this, CountryCode.japan)
                     changeReceiveCountryDialog.dismiss()
                 }
-                philippines -> {
-                    viewModel.getExchangeRate(this, philippines)
+                CountryCode.philippines -> {
+                    viewModel.getExchangeRate(this, CountryCode.philippines)
                     changeReceiveCountryDialog.dismiss()
                 }
             }
