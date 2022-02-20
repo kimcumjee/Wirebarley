@@ -1,14 +1,10 @@
-package com.android.wirebarley.main.view
+package com.android.wirebarley.main.view.dialog
 
 import android.app.Activity
 import android.view.LayoutInflater
-import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
 class BindingDialog<T : ViewDataBinding>(private val activity: Activity, layoutRes: Int) {

@@ -1,5 +1,6 @@
 package com.android.wirebarley.main.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import androidx.core.widget.addTextChangedListener
 import com.android.wirebarley.R
 import com.android.wirebarley.`object`.CountryCode
 import com.android.wirebarley.databinding.ActivityMainBinding
+import com.android.wirebarley.main.view.dialog.Dialog
 import com.android.wirebarley.main.viewModel.MainViewModel
 import java.math.BigDecimal
 import java.text.DecimalFormat
@@ -17,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val viewModel = MainViewModel()
     private val dec = DecimalFormat("#,###.00")
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
         viewModel.received.observe(this) {
             getTime()
             setReceivedCountry(it.exchangeRate, it.countryCode)
@@ -61,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
+
         viewModel.changeCountry.observe(this) {
             when (it) {
                 CountryCode.korea -> {
@@ -87,11 +91,13 @@ class MainActivity : AppCompatActivity() {
         binding.tvTime.text = text
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setReceivedCountry(exchangeRate: Double, countryCode: Int) {
 
         val korea = getString(R.string.수취국가_한국)
         val japan = getString(R.string.수취국가_일본)
         val philippines = getString(R.string.수취국가_필리핀)
+
         binding.run {
             when (countryCode) {
                 0 -> {
@@ -110,30 +116,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun calculateReceivedMoney(sendMoney: String, exchangeRate: Double, countryCode: Int) {
         val bdSendMoney = BigDecimal(sendMoney)
         val bdExchangeRate = BigDecimal(exchangeRate)
         val result = dec.format(bdExchangeRate * bdSendMoney)
         binding.run {
             when (countryCode) {
-                0 -> binding.tvResultReceiveMoney.text = result.toString()
-                1 -> binding.tvResultReceiveMoney.text = result.toString()
-                2 -> binding.tvResultReceiveMoney.text = result.toString()
+                CountryCode.korea -> binding.tvResultReceiveMoney.text = "수취금액은 $result KRW 입니다."
+                CountryCode.japan -> binding.tvResultReceiveMoney.text = "수취금액은 $result JPY 입니다."
+                CountryCode.philippines -> binding.tvResultReceiveMoney.text =
+                    "수취금액은 $result PHP 입니다."
             }
         }
     }
 }
-//when (tvReceiveCountry.text) {
-//    this@MainActivity.getText(R.string.한국_KRW) -> viewModel.getExchangeRate(
-//    this@MainActivity,
-//    koreaCode
-//    )
-//    this@MainActivity.getText(R.string.일본_JPY) -> viewModel.getExchangeRate(
-//    this@MainActivity,
-//    japanCode
-//    )
-//    this@MainActivity.getText(R.string.필리핀_PHP) -> viewModel.getExchangeRate(
-//    this@MainActivity,
-//    philippines
-//    )
-//}

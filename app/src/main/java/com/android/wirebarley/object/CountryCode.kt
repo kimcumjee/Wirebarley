@@ -1,7 +1,7 @@
 package com.android.wirebarley.`object`
 
 object CountryCode {
-    val korea = 0
-    val japan = 1
-    val philippines = 2
+    const val korea = 0
+    const val japan = 1
+    const val philippines = 2
 }

@@ -1,4 +1,4 @@
-package com.android.wirebarley.main.view
+package com.android.wirebarley.main.view.dialog
 
 import android.app.Activity
 import androidx.appcompat.app.AlertDialog
@@ -12,7 +12,6 @@ class Dialog(private val activity: Activity, private val viewModel: MainViewMode
             activity,
             R.layout.dialog_set_country
         )
-        val dialog = binding.getAlertDialog()
         binding.binding.apply {
             btnSetKRW.setOnClickListener {
                 viewModel.changeCountry.value = 0
